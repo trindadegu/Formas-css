@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+  <title>Interface de Música</title>
+</head>
+<body>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="carro-esportivo.html">Carro Esportivo</a>
+    <a href="robo-futurista.html">Robô Futurista</a>
+    <a href="grafico-barras.html">Gráfico de Barras</a>
+    <a href="padrao-decorativo.html">Padrão Decorativo</a>
+  </nav>
+
+  <div id="music-player">
+    <h2>Player de Música</h2>
+    <div class="album-art"></div>
+    <div class="song-info">
+      <div class="title">Título da Música</div>
+      <div class="artist">Artista</div>
+    </div>
+    <div class="controls">
+      <button id="play-pause" title="Play/Pause">▶️</button>
+      <input type="range" id="volume" min="0" max="100" value="50" title="Volume" />
+    </div>
+    <input type="range" id="progress" min="0" max="100" value="0" title="Progress" />
+  </div>
+</body>
+</html>

@@ -1,0 +1,444 @@
+/* ---------- Geral ---------- */
+body {
+  background: radial-gradient(ellipse at center, #121212 0%, #000000 100%);
+  color: #eee;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+  padding: 20px;
+  overflow-x: hidden;
+}
+
+nav {
+  background: #222;
+  padding: 10px 20px;
+  text-align: center;
+  margin-bottom: 40px;
+  border-radius: 8px;
+}
+
+nav a {
+  color: #0ff;
+  margin: 0 15px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #fff;
+}
+
+/* ---------- Containers Centralizados ---------- */
+#robo-container,
+#carro-container,
+#padrao-container,
+#grafico-container {
+  margin: 40px auto;
+  position: relative;
+  width: 300px;
+  height: 300px;
+  border-radius: 15px;
+  background: #222;
+  box-shadow: 0 0 15px #0ff inset;
+}
+
+/* =================== Robô Futurista =================== */
+#robo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(145deg, #111, #222);
+  animation: robo-move 2s infinite alternate ease-in-out;
+}
+
+@keyframes robo-move {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-5px); }
+}
+
+.head {
+  position: relative;
+  width: 120px;
+  height: 100px;
+  background: linear-gradient(145deg, #555, #333);
+  border-radius: 20px 20px 10px 10px;
+  box-shadow: 0 0 8px #0ff;
+  margin-bottom: 10px;
+}
+
+.eye {
+  position: absolute;
+  top: 35px;
+  width: 20px;
+  height: 20px;
+  background: #0ff;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #0ff;
+}
+.eye.left { left: 30px; }
+.eye.right { right: 30px; }
+
+.antenna {
+  position: absolute;
+  top: -20px;
+  width: 8px;
+  height: 25px;
+  background: #0ff;
+  border-radius: 4px;
+  box-shadow: 0 0 8px #0ff;
+}
+.antenna.left { left: 25px; }
+.antenna.right { right: 25px; }
+
+.body {
+  position: relative;
+  width: 140px;
+  height: 120px;
+  background: linear-gradient(145deg, #444, #222);
+  border-radius: 15px;
+  box-shadow: 0 0 10px #0ff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 10px 0;
+}
+
+.detail {
+  height: 12px;
+  margin: 6px 20px;
+  background: #0ff;
+  border-radius: 6px;
+  box-shadow: 0 0 6px #0ff;
+}
+.top-bar { width: 80%; }
+.middle-bar { width: 60%; }
+.bottom-bar { width: 70%; }
+
+.arm {
+  position: absolute;
+  top: 120px;
+  width: 25px;
+  height: 80px;
+  background: linear-gradient(145deg, #444, #222);
+  border-radius: 15px;
+  box-shadow: 0 0 10px #0ff;
+  animation: arm-move 1.5s infinite alternate ease-in-out;
+}
+.arm.left { left: 30px; transform-origin: top left; }
+.arm.right { right: 30px; transform-origin: top right; }
+
+@keyframes arm-move {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(10deg); }
+}
+
+.leg {
+  position: absolute;
+  bottom: 0;
+  width: 30px;
+  height: 90px;
+  background: linear-gradient(145deg, #444, #222);
+  border-radius: 15px;
+  box-shadow: 0 0 10px #0ff;
+  animation: leg-move 1.2s infinite alternate ease-in-out;
+}
+.leg.left { left: 70px; }
+.leg.right { right: 70px; }
+
+@keyframes leg-move {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(5deg); }
+}
+
+/* =================== Carro Esportivo com Cenário =================== */
+#carro-container {
+  width: 100%;
+  height: 300px;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(to top, #333, #111);
+}
+
+/* Nuvens */
+.cloud {
+  position: absolute;
+  top: 20px;
+  width: 100px;
+  height: 60px;
+  background: #ccc;
+  border-radius: 50px;
+  opacity: 0.5;
+  animation: cloud-move 30s linear infinite;
+}
+.cloud::before,
+.cloud::after {
+  content: '';
+  position: absolute;
+  background: #ccc;
+  border-radius: 50px;
+}
+.cloud::before {
+  width: 60px;
+  height: 60px;
+  left: -30px;
+  top: 0;
+}
+.cloud::after {
+  width: 80px;
+  height: 80px;
+  right: -40px;
+  top: -10px;
+}
+.cloud:nth-child(1) { left: -100px; animation-delay: 0s; }
+.cloud:nth-child(2) { left: -200px; top: 60px; animation-delay: 10s; }
+.cloud:nth-child(3) { left: -300px; top: 100px; animation-delay: 20s; }
+
+@keyframes cloud-move {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(120vw); }
+}
+
+/* Paisagem */
+.hills {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 80px;
+  background: linear-gradient(to top, #050, #0a0);
+  border-top-left-radius: 100px;
+  border-top-right-radius: 100px;
+  z-index: 1;
+}
+
+/* Carro */
+.car {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 400px;
+  height: 120px;
+  animation: move-car 4s infinite alternate ease-in-out;
+  z-index: 2;
+}
+
+.car-body {
+  position: absolute;
+  bottom: 20px;
+  left: 50px;
+  width: 300px;
+  height: 70px;
+  background: red;
+  border-radius: 40px 40px 20px 20px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  z-index: 2;
+}
+
+.hood {
+  position: absolute;
+  bottom: 75px;
+  left: 130px;
+  width: 130px;
+  height: 40px;
+  background: #ff4d4d;
+  border-radius: 30px 20px 0 0;
+  box-shadow: inset 0 3px 5px rgba(255, 255, 255, 0.4);
+  z-index: 3;
+}
+
+.windshield {
+  position: absolute;
+  bottom: 95px;
+  left: 150px;
+  width: 90px;
+  height: 30px;
+  background: rgba(200, 255, 255, 0.6);
+  border-radius: 15px 15px 0 0;
+  border: 2px solid #66ffff;
+  z-index: 4;
+}
+
+.wheel {
+  position: absolute;
+  bottom: 0;
+  width: 60px;
+  height: 60px;
+  background: radial-gradient(circle at center, #333 30%, #000 90%);
+  border-radius: 50%;
+  box-shadow: inset 0 0 5px #666;
+  border: 4px solid #555;
+  z-index: 5;
+  animation: rotate-wheel 0.8s linear infinite;
+}
+.wheel.front { left: 80px; }
+.wheel.back { left: 280px; }
+
+.headlight {
+  position: absolute;
+  bottom: 90px;
+  width: 20px;
+  height: 15px;
+  background: yellow;
+  border-radius: 10px;
+  box-shadow: 0 0 10px yellow;
+  z-index: 6;
+}
+.headlight.left { left: 50px; }
+.headlight.right { left: 330px; }
+
+.bumper {
+  position: absolute;
+  bottom: 30px;
+  left: 40px;
+  width: 320px;
+  height: 10px;
+  background: #880000;
+  border-radius: 10px;
+  z-index: 7;
+}
+
+@keyframes move-car {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(650px); }
+}
+
+@keyframes rotate-wheel {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* =================== Gráfico de Barras =================== */
+/* =================== Gráfico de Barras Corrigido =================== */
+#grafico-container {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  height: 300px;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+  background: #111;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 0 12px #0ff;
+}
+
+.bar {
+  width: 40px;
+  background: linear-gradient(to top, #0ff, #00f);
+  border-radius: 8px 8px 0 0;
+  transform: scaleY(0);
+  transform-origin: bottom;
+  animation: grow-bar 1s ease-out forwards;
+  box-shadow: 0 0 5px #0ff;
+}
+
+.bar1 { animation-delay: 0s; }
+.bar2 { animation-delay: 0.2s; }
+.bar3 { animation-delay: 0.4s; }
+.bar4 { animation-delay: 0.6s; }
+.bar5 { animation-delay: 0.8s; }
+
+@keyframes grow-bar {
+  to {
+    transform: scaleY(1);
+  }
+}
+
+/* Alturas definidas com --bar-height para maior controle */
+.bar1 { height: 150px; }
+.bar2 { height: 210px; }
+.bar3 { height: 90px; }
+.bar4 { height: 270px; }
+.bar5 { height: 180px; }
+
+
+/* =================== Padrão Decorativo =================== */
+/* Estilo do Padrão Decorativo */
+#padrao-decorativo {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(135deg, #1d1f20, #3a3d40);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+}
+
+.decor-shape {
+  position: absolute;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle at center, #ff6ec4, #7873f5);
+  clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+  opacity: 0.7;
+  animation: flutuar 8s infinite ease-in-out;
+}
+
+.shape1 {
+  top: 10%;
+  left: 15%;
+  animation-delay: 0s;
+}
+.shape2 {
+  top: 30%;
+  left: 60%;
+  animation-delay: 2s;
+  background: radial-gradient(circle at center, #42e695, #3bb2b8);
+}
+.shape3 {
+  top: 65%;
+  left: 25%;
+  animation-delay: 4s;
+  background: radial-gradient(circle at center, #f093fb, #f5576c);
+}
+.shape4 {
+  top: 50%;
+  left: 80%;
+  animation-delay: 6s;
+  background: radial-gradient(circle at center, #ff9a9e, #fad0c4);
+}
+.shape5 {
+  top: 75%;
+  left: 50%;
+  animation-delay: 1s;
+  background: radial-gradient(circle at center, #a1c4fd, #c2e9fb);
+}
+
+@keyframes flutuar {
+  0%, 100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(20deg);
+  }
+}
+
+
+/* =================== Responsividade =================== */
+@media (max-width: 768px) {
+  nav a {
+    display: block;
+    margin: 10px 0;
+  }
+
+  #robo-container,
+  #carro-container,
+  #padrao-container,
+  #grafico-container {
+    width: 90%;
+    height: auto;
+    margin-bottom: 60px;
+  }
+
+  .car {
+    transform: scale(0.8);
+    left: -50px;
+  }
+
+  .cloud {
+    width: 80px;
+    height: 50px;
+  }
+}
