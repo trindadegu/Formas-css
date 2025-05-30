@@ -15,18 +15,48 @@
     <a href="padrao-decorativo.html">Padrão Decorativo</a>
   </nav>
 
-  <div id="music-player">
-    <h2>Player de Música</h2>
-    <div class="album-art"></div>
-    <div class="song-info">
-      <div class="title">Título da Música</div>
-      <div class="artist">Artista</div>
+  <div class="container">
+    <div id="music-player">
+      <h2>Player de Música</h2>
+
+      <div class="album-art"></div>
+
+      <div class="song-info">
+        <div class="title">Terapia</div>
+        <div class="artist">Mc Kevin</div>
+      </div>
+
+      <div class="controls">
+        <!-- Botão voltar -->
+        <button class="control-btn" title="Voltar">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" viewBox="0 0 24 24">
+            <path d="M11 18V6l-8.5 6L11 18zM13 6v12l8.5-6L13 6z"/>
+          </svg>
+        </button>
+
+        <!-- Botão play/pause -->
+        <button class="control-btn" id="play-pause" title="Play/Pause">
+          <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="white" viewBox="0 0 24 24">
+            <path d="M8 5v14l11-7z"/>
+          </svg>
+        </button>
+
+        <!-- Botão avançar -->
+        <button class="control-btn" title="Avançar">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="white" viewBox="0 0 24 24">
+            <path d="M13 6v12l8.5-6L13 6zM11 6L2.5 12 11 18V6z"/>
+          </svg>
+        </button>
+
+        <!-- Volume -->
+        <input type="range" id="volume" min="0" max="100" value="50" title="Volume" />
+      </div>
+
+      <!-- Barra de progresso visual -->
+      <div class="progress-bar">
+        <div class="progress-fill"></div>
+      </div>
     </div>
-    <div class="controls">
-      <button id="play-pause" title="Play/Pause">▶️</button>
-      <input type="range" id="volume" min="0" max="100" value="50" title="Volume" />
-    </div>
-    <input type="range" id="progress" min="0" max="100" value="0" title="Progress" />
   </div>
 </body>
 </html>
